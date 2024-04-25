@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "646440272549",
+    "firebase_url": "https://weightbridge-66240-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "weightbridge-66240",
+    "storage_bucket": "weightbridge-66240.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646440272549:android:de168497b67a3dcf2a834c",
+        "android_client_info": {
+          "package_name": "com.id.angga.weightbridge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2AJot7DOto-8BLkKJzSd7yzBVSirEIHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">WeightBridge</string>
+    <string name= "submit">Submit Ticket</string>
+    <string name="truck_license">Truck License Number</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="inbound">Inbound Weight</string>
+    <string name="outbound">Outbound Weight</string>
+    <string name="name_length_error">Name needs at least 3 characters</string>
+    <string name="truc_license_error_length">License Number cannot empty</string>
+    <string name="truc_license_error">License Number format incorrect</string>
+    <string name="inbound_error">Please input inbound weight</string>
+    <string name="inbound_weight_format_error">Inbound weight must a valid positive number</string>
+    <string name="outbound_error">Please input outbound weight</string>
+    <string name="outbound_weight_format_error">Outbound weight must a valid positive number</string>
+    <string name="outbound_weight_less_error">Outbound weight must be less than inbound weight</string>
+    <string name="text_truck_license">Truck License Number</string>
+    <string name="in_text">Inbound : %d</string>
+    <string name="out_text">Outbound : %d</string>
+    <string name="nett_text">Nett : %d</string>
+    <string name="send_to_server">Send to Server</string>
+    <string name="pending_data">Theres row that not on remote yet</string>
+</resources>
