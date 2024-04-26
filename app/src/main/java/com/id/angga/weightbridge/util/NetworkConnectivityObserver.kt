@@ -47,6 +47,9 @@ class NetworkConnectivityObserver (
             }
 
             connectivityManager.registerDefaultNetworkCallback(callback)
+            if (connectivityManager.activeNetwork == null) {
+                trySend(ConnectivityObserver.Status.Unavailable)
+            }
             awaitClose {
                 connectivityManager.unregisterNetworkCallback(callback)
             }

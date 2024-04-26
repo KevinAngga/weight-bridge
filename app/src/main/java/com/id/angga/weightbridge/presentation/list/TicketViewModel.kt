@@ -8,9 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.id.angga.weightbridge.domain.model.Weight
 import com.id.angga.weightbridge.domain.usecase.TicketUseCase
 import com.id.angga.weightbridge.domain.usecase.validation.TicketValidationUseCase
+import com.id.angga.weightbridge.util.ConnectivityObserver
+import com.id.angga.weightbridge.util.NetworkConnectivityObserver
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -20,7 +24,8 @@ import javax.inject.Inject
 @HiltViewModel
 class TicketViewModel @Inject constructor(
     private val ticketUseCase: TicketUseCase,
-    private val ticketValidationUseCase: TicketValidationUseCase
+    private val ticketValidationUseCase: TicketValidationUseCase,
+    private val connectivityObserver: NetworkConnectivityObserver
 ) : ViewModel() {
     var ticket by mutableStateOf(TicketFormState())
 
@@ -35,6 +40,7 @@ class TicketViewModel @Inject constructor(
 
     init {
         getTickets()
+//        checkInternet()
     }
 
     private fun filter(query: String) {
@@ -179,12 +185,17 @@ class TicketViewModel @Inject constructor(
         }
     }
 
+
+    private fun checkInternet() {
+        connectivityObserver.observer().onEach {
+            println("--- Status is $it")
+        }.launchIn(viewModelScope)
+    }
+
     private fun getTickets() {
         viewModelScope.launch {
-            println("--- launch ")
             ticketUseCase.getTickets.invoke().collect {
                 _tickets.value = it
-                println("--- view model "+it)
             }
         }
     }
